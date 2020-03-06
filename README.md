@@ -113,3 +113,4 @@ Step 3: Select your home (or whatever) network, punch in the wifi passcode if an
 
 ## Testing
 
+# lysimeter-wifi-conf
