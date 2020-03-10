@@ -27,8 +27,8 @@ If you do not have `bower` installed already, you can install it globally by run
 ## Install
 
 ```sh
-$git clone https://github.com/sabhiram/raspberry-wifi-conf.git
-$cd raspberry-wifi-conf
+$git clone https://github.com/adbrum/lysimeter-wifi-conf.git
+$cd lysimeter-wifi-conf
 $npm update
 $bower install
 $sudo npm run-script provision
