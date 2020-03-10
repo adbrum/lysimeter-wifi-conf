@@ -32,7 +32,7 @@ $cd lysimeter-wifi-conf
 $npm update
 $bower install
 $sudo npm run-script provision
-$sudo npm start
+$sudo ./rpi-ap-setup.sh
 ```
 
 
@@ -41,9 +41,9 @@ $sudo npm start
 There is a startup script included to make the server starting and stopping easier. Do remember that the application is assumed to be installed under `/home/pi/raspberry-wifi-conf`. Feel free to change this in the `assets/init.d/raspberry-wifi-conf` file.
 
 ```sh
-$sudo cp assets/init.d/raspberry-wifi-conf /etc/init.d/raspberry-wifi-conf 
-$sudo chmod +x /etc/init.d/raspberry-wifi-conf  
-$sudo update-rc.d raspberry-wifi-conf defaults
+$sudo cp assets/init.d/raspberry-wifi-conf /etc/init.d/lysimeter-wifi-conf 
+$sudo chmod +x /etc/init.d/lysimeter-wifi-conf  
+$sudo update-rc.d lysimeter-wifi-conf defaults
 ```
 
 ### Gotchas
@@ -86,14 +86,14 @@ This is approximately what occurs when we run this app:
 
 Typically, I have the following line in my `/etc/rc.local` file:
 ```
-cd /home/pi/raspberry-wifi-conf
+cd /home/pi/lysimeter-wifi-conf
 sudo /usr/bin/node server.js
 ```
 
 Note that this is run in a blocking fashion, in that this script will have to exit before we can proceed with others defined in `rc.local`. This way I can guarantee that other services which might rely on wifi will have said connection before being run. If this is not the case for you, and you just want this to run (if needed) in the background, then you can do:
 
 ```
-cd /home/pi/raspberry-wifi-conf
+cd /home/pi/lysimeter-wifi-conf
 sudo /usr/bin/node server.js < /dev/null &
 ```
 
@@ -111,6 +111,4 @@ Step 2: Join the above network, and navigate to the static IP and port we set in
 
 Step 3: Select your home (or whatever) network, punch in the wifi passcode if any, and click `Submit`. You are done! Your Pi is now on your home wifi!!
 
-## Testing
-
-# lysimeter-wifi-conf
+## lysimeter-wifi-conf
