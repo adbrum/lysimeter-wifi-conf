@@ -38,10 +38,10 @@ $sudo ./rpi-ap-setup.sh
 
 ## Setup the app as a service
 
-There is a startup script included to make the server starting and stopping easier. Do remember that the application is assumed to be installed under `/home/pi/raspberry-wifi-conf`. Feel free to change this in the `assets/init.d/raspberry-wifi-conf` file.
+There is a startup script included to make the server starting and stopping easier. Do remember that the application is assumed to be installed under `/home/pi/lysimeter-wifi-conf`. Feel free to change this in the `assets/init.d/lysimeter-wifi-conf` file.
 
 ```sh
-$sudo cp assets/init.d/raspberry-wifi-conf /etc/init.d/lysimeter-wifi-conf 
+$sudo cp assets/init.d/lysimeter-wifi-conf /etc/init.d/lysimeter-wifi-conf 
 $sudo chmod +x /etc/init.d/lysimeter-wifi-conf  
 $sudo update-rc.d lysimeter-wifi-conf defaults
 ```
@@ -59,7 +59,7 @@ $iw list
 
 If the above says `nl80211 not found.` it means you are running the `rtl871xdrv` driver and probably need to update the `hostapd` binary as follows:
 ```
-$cd raspberry-wifi-conf
+$cd lysimeter-wifi-conf
 $sudo mv /usr/sbin/hostapd /usr/sbin/hostapd.OLD
 $sudo mv assets/bin/hostapd.rtl871xdrv /usr/sbin/hostapd
 $sudo chmod 755 /usr/sbin/hostapd
@@ -103,11 +103,11 @@ In my config file, I have set up the static ip for my PI when in AP mode to `192
 
 Step 1: Power on Pi which runs this app on startup (assume it is not configured for a wifi connection). Once it boots up, you will see `rpi-config-ap` among the wifi connections.  The password is configured in config.json.
 
-<img src="https://raw.githubusercontent.com/sabhiram/public-images/master/raspberry-wifi-conf/wifi_options.png" width="200px" height="160px" />
+<img src="https://raw.githubusercontent.com/sabhiram/public-images/master/lysimeter-wifi-conf/wifi_options.png" width="200px" height="160px" />
 
 Step 2: Join the above network, and navigate to the static IP and port we set in config.json (`http://192.168.44.1:88`), you will see:
 
-<img src="https://raw.githubusercontent.com/sabhiram/public-images/master/raspberry-wifi-conf/ui.png" width="404px" height="222px" />
+<img src="https://raw.githubusercontent.com/sabhiram/public-images/master/lysimeter-wifi-conf/ui.png" width="404px" height="222px" />
 
 Step 3: Select your home (or whatever) network, punch in the wifi passcode if any, and click `Submit`. You are done! Your Pi is now on your home wifi!!
 
