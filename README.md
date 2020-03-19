@@ -1,4 +1,4 @@
-# raspberry-wifi-conf
+# lysimeter-wifi-conf
 
 A Node application which makes connecting your RaspberryPi to your home wifi easier.
 
